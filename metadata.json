@@ -1,0 +1,8 @@
+{
+  "name": "Inglês online-Axe",
+  "description": "Estude de forma prática e flexível e desenvolva suas habilidades em inglês para o dia a dia e o trabalho.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
