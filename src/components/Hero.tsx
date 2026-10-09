@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Star, Sparkles, BookOpen, Clock, Award } from 'lucide-react';
 import { PRODUCT } from '../types';
 import AudioPreview from './AudioPreview';
+import { trackBeginCheckout } from '../utils/analytics';
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false);
 
   const handleCheckout = () => {
+    trackBeginCheckout('hero');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

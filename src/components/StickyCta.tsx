@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowUpRight, Zap } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout } from '../utils/analytics';
 
 export default function StickyCta() {
   const [visible, setVisible] = useState(false);
@@ -19,6 +20,7 @@ export default function StickyCta() {
   }, []);
 
   const handleCheckout = () => {
+    trackBeginCheckout('sticky_cta');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

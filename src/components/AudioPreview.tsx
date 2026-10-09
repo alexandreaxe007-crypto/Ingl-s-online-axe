@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { trackAudioSamplePlayed } from '../utils/analytics';
 
 interface AudioExample {
   title: string;
@@ -51,6 +52,7 @@ export default function AudioPreview() {
       return;
     }
 
+    trackAudioSamplePlayed(activeExample.title);
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(activeExample.phrase);
     utterance.lang = 'en-US';

@@ -1,8 +1,10 @@
 import { Check, ShieldCheck, Lock, Zap, ArrowRight, Star } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout } from '../utils/analytics';
 
 export default function PricingSection() {
   const handleCheckout = () => {
+    trackBeginCheckout('pricing_card');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

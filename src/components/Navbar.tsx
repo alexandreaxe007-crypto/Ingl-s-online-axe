@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout } from '../utils/analytics';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleCheckout = () => {
+    trackBeginCheckout('navbar');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, BookOpen, Clock, CheckCircle2, Gift } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout } from '../utils/analytics';
 
 interface ModuleItem {
   id: string;
@@ -78,6 +79,7 @@ export default function Curriculum() {
   };
 
   const handleCheckout = () => {
+    trackBeginCheckout('curriculum');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

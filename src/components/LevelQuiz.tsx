@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { HelpCircle, CheckCircle, ArrowRight, RotateCcw } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout, trackQuizCompleted } from '../utils/analytics';
 
 interface Question {
   id: number;
@@ -91,6 +92,7 @@ export default function LevelQuiz() {
       setCurrentStep(currentStep + 1);
     } else {
       setFinished(true);
+      trackQuizCompleted(profile);
     }
   };
 
@@ -101,6 +103,7 @@ export default function LevelQuiz() {
   };
 
   const handleCheckout = () => {
+    trackBeginCheckout('quiz_results');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 

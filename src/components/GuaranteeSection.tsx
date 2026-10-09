@@ -1,8 +1,10 @@
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { PRODUCT } from '../types';
+import { trackBeginCheckout } from '../utils/analytics';
 
 export default function GuaranteeSection() {
   const handleCheckout = () => {
+    trackBeginCheckout('guarantee_section');
     window.open(PRODUCT.paymentUrl, '_blank', 'noopener,noreferrer');
   };
 
